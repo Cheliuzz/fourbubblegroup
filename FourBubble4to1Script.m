@@ -102,3 +102,27 @@ for i = 1:4  % Loop over 4 subplots
     ylabel('posx');
     title(['Males ' num2str(males_IDs(i)) ' and females']);
 end
+figure;
+males_IDs = [1, 6, 11, 18];  % IDs for males
+females_IDs = [2, 3, 4, 5, 7, 8, 9, 10, 12, 13, 14, 15, 16, 17, 19, 20];  % IDs for females
+
+for i = 1:4  % Loop over 4 subplots
+    subplot(4, 1, i);  % Create a 4x1 grid of subplots
+    
+    % Plot the male's data in black
+    plot(data{males_IDs(i)}, 'k-', 'LineWidth', 1);
+  
+  
+    % Set the x-axis limits
+    set(gca, 'xlim', [0 900]);
+    box off;  % Remove the box around the plot
+    hold off;  % Release the hold for the next subplot
+    sgtitle('closest fly nose to tail')
+    han = axes(gcf,'Visible','off');
+han.YLabel.Visible = 'on';
+% Change ylabel for each parameter
+ylabel(han, 'Change in wing angle from frame t to t + 1 (deg/s)');
+han.XLabel.Visible = 'on';
+xlabel(han, 'Time (s)');
+
+end
